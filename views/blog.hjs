@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  
+  
+  
+  
+  <body>
+
+  
+	<h1>These are the Homepage of the  blogs</h1>
+      <a href="http://localhost:3000/index_date">Sort_by_date</a>
+         <a href="http://localhost:3000/index_alpha">Sort_by_alphabetically</a>
+	{{#in_ca}}
+	   {{#no_of_blogs}}
+	 
+	   {{#_id}}
+	            <li> {{{body}}} 
+				 <a href="http://localhost:3000/posts/{{permalink}}">Permalink</a><br><b>{{date}}</b>
+				</li><br><br>
+	         
+	   {{/_id}}
+	   {{/no_of_blogs}}
+   
+    {{/in_ca}}  	
+  
+  
+  </body>
+    
+</html>
