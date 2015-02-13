@@ -14,8 +14,7 @@
      
 	<h1 class ="col-12">This is the Tag query page of the selected tag</h1>
 	{{#in_ca}}
-	   {{#no_of_blogs}} 
-	   
+	   {{#no_of_blogs}}  
 	     {{#_id}}
 	            <li> {{{body}}}  </b><br></li><br><br>
 				   <b>{{author}} </b><br>

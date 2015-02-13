@@ -7,18 +7,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-  
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
      
-	<h1 class ="col-12">This is the permalink page of the posts</h1>
+	
 	{{#in_ca}}
 	   {{#no_of_blogs}}	 
-	   {{#_id}}
-	            <li> {{{body}}} <b> Author_of_article-->{{author}} </b><br></li><br><br>
-				   <b>{{author}} </b><br>	
-				{{#comments}}
+	   {{#_id}} <p class ="col-12" align ="center" style="font-size: 30px;padding-bottom: 20px;color: black;"><u>{{title}}</u></p><hr>
+	            <li> {{{body}}} <b> Author_of_article-->{{author}} </b><br></li><br><hr><br>
+				<b style="font-size: 18px; padding-bottom:10px;"><u>Comments</u></b>
+				{{#comments}}	     
 				      <li>{{body}}</li>
 					  <b>Email-></b>{{email}}
 					  <b>Author Name-></b>{{author}}<br></br>
