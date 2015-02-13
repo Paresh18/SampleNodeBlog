@@ -11,29 +11,33 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   
-  
-  
-  
   <body>
-
   
-	<h1>These are the Homepage of the  blogs</h1>
-      <a href="http://localhost:3000/index_date">Sort_by_date</a>
-         <a href="http://localhost:3000/index_alpha">Sort_by_alphabetically</a>
+	<h1 class ="col-12" align="center" ><b font-size:10px>Hngre Blog</b></h1><hr>
+	<div class="col-12">
+	<div align ="right" style="padding-bottom: 10px; font-size: medium;">
+      <a href="http://localhost:3000/index_date" class ="col-12" ><label>Sort:</label><b>Date</b></a>
+         <a  align="right" href="http://localhost:3000/index_alpha"class ="col-12" ><b>/A-Z</b></a>
+		</div> 
+	</div>
+   <div class ="row">  
+	     <div class = "col-3">
 	{{#in_ca}}
 	   {{#no_of_blogs}}
 	 
-	   {{#_id}}
-	            <li> {{{body}}} 
-				 <a href="http://localhost:3000/posts/{{permalink}}">Permalink</a><br><b>{{date}}</b>
+	   {{#_id}}  <p font-size:""><u style="color:darkgoldenrod"><b style ="font-size:20px; color:darkgoldenrod">
+	   
+	   <a href="http://localhost:3000/posts/{{permalink}}"  style="color:darkgoldenrod">
+	   {{title}}</a></b></u></p>
+	            <li> {{{body}}}<b> 
+				{{date}}</b><hr style="color:black">
 				</li><br><br>
-	         
-	   {{/_id}}
-	   {{/no_of_blogs}}
+	  
+	    {{/_id}}
+	  {{/no_of_blogs}}
    
     {{/in_ca}}  	
-  
-  
-  </body>
-    
+	</div>
+ </div>	
+  </body>    
 </html>
