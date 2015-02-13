@@ -21,6 +21,7 @@ var blogSchema = new Schema({
 	email:String,
     author:String
 	}],
+	title:String,
 	date: { type: Date },
 	tags: { type: [String], index: true }
 	
@@ -42,7 +43,7 @@ router.get('/ab', function (req, res) {
 */
 
 //The homapage of the blogs
-router.get('/index', function (req, res) {	
+router.get('/', function (req, res) {	
 blog.find({},function (err, docs) {
 		console.log("rendering the page");
 		res.render('blog',{"no_of_blogs":docs
