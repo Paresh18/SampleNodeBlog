@@ -10,24 +10,31 @@
   
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
-  <body>
-
-  
-	<h1>These are the Homepage of the date blogs</h1>
+    
+ <div align ="right"> 
+                 <a href="/logout" >logout</a>
+</div>
+		
+   <div class ="row">  
+	     <div class = "col-3">
 	{{#in_ca}}
 	   {{#no_of_blogs}}
 	 
-	   {{#_id}}
-	            <li> {{{body}}} 
-				 <a href="http://localhost:3000/posts/{{permalink}}">Permalink</a><br><b>{{date}}</b>
+	    <p font-size:""><u style="color:darkgoldenrod"><b style ="font-size:20px; color:darkgoldenrod">
+	   
+	   <a href="http://localhost:3000/posts/{{permalink}}"  style="color:darkgoldenrod">
+	   {{title}}</a></b></u></p>
+	            <li> {{{body}}}<b> 
+				{{date}}</b><hr style="color:black">
 				</li><br><br>
-	         
-	   {{/_id}}
-	   {{/no_of_blogs}}
+	  
+	    
+	  {{/no_of_blogs}}
    
     {{/in_ca}}  	
-  
-  
-  </body>
-    
+	</div>
+ </div>
+
+ 
+  </body>    
 </html>

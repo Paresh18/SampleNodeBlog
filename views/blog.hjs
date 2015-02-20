@@ -9,23 +9,42 @@
 
   
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  
-  <body>
-  
+</head>	
+
+<body style ="padding-top:inherit">
+	<div align="right">	
+<p style="font-size: larger;">Login or Register with:</p>
+		<a href="/login">Local Login</a><br><br>
+		<a href="/signup">Local Signup</a>
+	   </div>	
+     
+ 
+ 
+ 
+ <p>{{error}}</p>
+ 
+ 
 	<h1 class ="col-12" align="center" ><b font-size:10px>Hngre Blog</b></h1><hr>
+	
 	<div class="col-12">
 	<div align ="right" style="padding-bottom: 10px; font-size: medium;">
-      <a href="http://localhost:3000/index_date" class ="col-12" ><label>Sort:</label><b>Date</b></a>
-         <a  align="right" href="http://localhost:3000/index_alpha"class ="col-12" ><b>/A-Z</b></a>
+	     <form action="/adf" method="get" >
+	         <input type="text"  style ="margin-bottom: 10px;" class="form" name="sort" placeholder="Enter title or date"><br>
+		<button type="submit" class="btn btn-info">Find blogs by</button>
+	</form>
 		</div> 
 	</div>
+	
+
+	
+	
+	
    <div class ="row">  
 	     <div class = "col-3">
 	{{#in_ca}}
 	   {{#no_of_blogs}}
 	 
-	   {{#_id}}  <p font-size:""><u style="color:darkgoldenrod"><b style ="font-size:20px; color:darkgoldenrod">
+	    <p font-size:""><u style="color:darkgoldenrod"><b style ="font-size:20px; color:darkgoldenrod">
 	   
 	   <a href="http://localhost:3000/posts/{{permalink}}"  style="color:darkgoldenrod">
 	   {{title}}</a></b></u></p>
@@ -33,11 +52,13 @@
 				{{date}}</b><hr style="color:black">
 				</li><br><br>
 	  
-	    {{/_id}}
+	    
 	  {{/no_of_blogs}}
    
     {{/in_ca}}  	
 	</div>
- </div>	
+ </div>
+
+ 
   </body>    
 </html>

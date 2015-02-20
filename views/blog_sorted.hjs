@@ -9,25 +9,14 @@
 
   
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+</head>	
 
-  
-	<h1>These are the Homepage of the alphabetically sorted blogs</h1>
-	{{#in_ca}}
-	   {{#no_of_blogs}}
-	 
-	   {{#_id}}
-	            <li> {{{body}}} 
-				 <a href="http://localhost:3000/posts/{{permalink}}">Permalink</a><br><b>{{date}}</b>
-				</li><br><br>
-	         
-	   {{/_id}}
-	   {{/no_of_blogs}}
-   
-    {{/in_ca}}  	
-  
-  
-  </body>
-    
+<body>
+	
+ <p>{{error}}</p>
+ 
+ 
+ <a href ="/">home</a>
+
+  </body>    
 </html>
