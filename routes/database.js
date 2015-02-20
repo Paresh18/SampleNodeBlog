@@ -31,10 +31,6 @@ var blogSchema = new Schema({
 
 // Mongoose Model definition
 var blog = mongoose.model('posts', blogSchema);
-
-
-
-
 /*
 //making users pages 
 router.get('/ab', function (req, res) {
@@ -43,69 +39,82 @@ router.get('/ab', function (req, res) {
 */
 
 //The homapage of the blogs
-router.get('/', function (req, res) {	
-blog.find({},function (err, docs) {
-		console.log("rendering the page");
-		res.render('blog',{"no_of_blogs":docs
-		                  ,"in_ca":true })						  
-		console.log("rendered the page");
-	}).limit(4);
+router.get('/', function (req, res) {
+var q= blog.find({}).limit(4);
+q.exec(function(err,docs)
+{
+  	res.render('blog',{"no_of_blogs":docs
+		                  ,"in_ca":true })			
+});		
 });
 
 
 
-//sorting by date using aggregation but not working
 /*
-router.get('/index_date', function (req, res) {
-	blog.aggregate(
-	{
-		$projects:
-		{
-			milliseconds: {$milliseconds:"$date"},
-		}
-		
-	}
-	)
-blog.find({}).sort({milliseconds:-1}).exec(function (err, docs) {
-		console.log("this is index_date");
-		res.render('index_date_blog',{"no_of_blogs":docs
-		                  ,"in_ca":true })						  
-		console.log("sorting by date");
-	});   
+var q = models.Post.find({published: true}).sort('date', -1).limit(20);
+q.execFind(function(err, posts) {
+  // `posts` will be of length 20
 });
-
-
 */
 
 
-//sorting by date without aggreation but not displaying data something  is wrong with the inde_date_blog page "
-//I have kept differnt url for displaying the blog after sorting by date.
- 
-router.get('/index_date', function (req, res) {
-blog.find({},{sort:{date:-1}},function (err, docs) {
-	
-		console.log("rendering the sorted date page");
-		res.render('index_date_blog',{"no_of_blogs":docs
-		                  ,"in_ca":true })						  
-		console.log("rendered the sorted date page");
-	});		
+//sorting 
+
+router.get('/adf', function(req, res){
+  var a = req.query.sort;
+  if(a!='title'&& a!='date')
+  {
+	 var q= blog.find({}).limit(4);
+    q.exec(function(err,docs)
+  {
+	 res.render('blog_sorted',{
+	                      "error":"Sort only by title and date",
+		                   })		
+   });
+  }
+  
+  else {
+console.log(a);  
+var q= blog.find({}).sort(a).limit(4);
+q.exec(function(err,docs)
+{
+  	res.render('blog',{"no_of_blogs":docs
+		                  ,"in_ca":true })			
+});		
+}
+
 });
 
 
-	
+/*
+q.exec(function(err,docs)
+{
+  	res.render('blog',{"no_of_blogs":docs
+		                  ,"in_ca":true })			
+});		
+console.log("this is ending sorting query");
+});
+*/
 
-//sorting by alphbetically	
-router.get('/index_alpha', function (req, res) {
-   blog.find({},{sort:{body:1}},function (err, docs) {
-	   
-		res.render('index_alpha',{"no_of_blogs":docs
-		                  ,"in_ca":true })						  
-		console.log("rendered the page");
-	}).limit(4);
-      
-	});  	
-	
 
+
+
+
+
+//logging into account
+router.get('/a', function (req, res) {
+var q= blog.find({}).limit(4);
+q.exec(function(err,docs)
+{
+  	res.render('blog_lo',{"no_of_blogs":docs
+		                  ,"in_ca":true
+						    })			
+});		
+});
+
+console.log("rendered the blog page");
+
+		
 
 //defining the permalinks working
 router.get('/posts/:permalink',function(req,res)
